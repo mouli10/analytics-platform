@@ -1,0 +1,17 @@
+
+services:
+  airflow:
+    image: apache/airflow:2.10.2
+    environment:
+      - AIRFLOW_HOME=/opt/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__WEBSERVER__SECRET_KEY=this_is_a_very_secure_secret_key
+      - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ../:/opt/airflow/analytics-platform
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "airflow standalone"
+

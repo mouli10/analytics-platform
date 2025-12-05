@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+dbt_project/target/
+dbt_project/logs/
+.airflow/
+venv/
+.DS_Store
+airflow/logs/
+airflow/*.db
+airflow/*.cfg
+airflow/webserver_config.py
+airflow/standalone_admin_password.txt

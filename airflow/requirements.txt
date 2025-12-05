@@ -1,0 +1,4 @@
+dbt-snowflake
+pandas
+faker
+python-dotenv

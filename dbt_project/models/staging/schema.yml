@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ANALYTICS_PLATFORM
+    schema: RAW
+    tables:
+      - name: transactions_raw
+      - name: app_events_raw
+
+models:
+  - name: stg_transactions
+    tests:
+      - not_null:
+          column_name: transaction_id
+  - name: stg_app_events
+    tests:
+      - not_null:
+          column_name: event_id

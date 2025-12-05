@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fct_daily_revenue
+    tests:
+      - not_null:
+          column_name: revenue_date
+  - name: fct_product_revenue
+    tests:
+      - not_null:
+          column_name: product_id
