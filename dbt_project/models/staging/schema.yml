@@ -10,10 +10,22 @@ sources:
 
 models:
   - name: stg_transactions
-    tests:
-      - not_null:
-          column_name: transaction_id
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+          - unique
+      - name: status
+        tests:
+          - accepted_values:
+              values: ["succeeded", "failed", "refunded"]
   - name: stg_app_events
-    tests:
-      - not_null:
-          column_name: event_id
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+      - name: event_type
+        tests:
+          - accepted_values:
+              values: ["signup", "login", "view_page", "click_cta", "start_trial", "upgrade"]
